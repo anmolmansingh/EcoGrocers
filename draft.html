@@ -7,93 +7,133 @@
     <script src="https://unpkg.com/htmx.org@1.4.1"></script>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
         }
         .container {
             width: 90%;
-            margin: 0 auto;
+            margin: 40px auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
         .header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            margin-bottom: 20px;
         }
-        .header div, .header button {
-            padding: 10px;
-            border: 1px solid #000;
-            margin: 5px;
+        .header h1 {
+            font-size: 2em;
+            color: #333;
+        }
+        .header button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 20px;
+            background-color: #0052cc;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header button:hover {
+            background-color: #003d99;
         }
         .section {
             margin: 20px 0;
         }
         .grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
         .card {
             padding: 20px;
-            border: 1px solid #000;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            color: #0052cc;
+            margin-bottom: 10px;
+        }
+        .card h1 {
+            font-size: 2.5em;
+            color: #333;
         }
         .social-icons img {
-            width: 30px;
-            height: 30px;
-            margin: 5px;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
         }
-        .products {
-            display: flex;
-            justify-content: space-around;
-        }
-        .product {
-            display: flex;
-            align-items: center;
-        }
-        .product span {
-            width: 100px;
-        }
-        .alternates {
-            display: flex;
-            justify-content: space-around;
-        }
-        .alternates div {
-            width: 100px;
-            height: 100px;
-            border: 1px solid #000;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .add-mates {
+        .products, .alternates, .add-mates {
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        .add-mates div {
-            width: 100px;
-            height: 100px;
-            border: 1px solid #000;
-            margin: 10px 0;
+        .product, .alternate, .mate {
             display: flex;
-            justify-content: center;
             align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: #f0f4f8;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product span, .mate p {
+            flex: 1;
+        }
+        .product div, .alternate div, .mate button {
+            background-color: #0052cc;
+            width: 80px;
+            height: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .mate button {
+            width: auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .mate button:hover {
+            background-color: #003d99;
+        }
+        .right-section {
+            position: absolute;
+            top: 120px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            width: 200px; /* Adjust as needed */
+        }
+        .right-section .header button {
+            width: 100%;
+        }
+        .add-mates .mate {
+            width: 100%;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <div>
-                <h1>Visa Sustainability Impact</h1>
-            </div>
+            <h1>Visa Sustainability Impact</h1>
             <div>
                 <button>Button 1</button>
                 <button>Button 2</button>
                 <button>Button 3</button>
                 <button>Button 4</button>
             </div>
-            <button>Add Shopmates</button>
         </div>
         
         <div class="section">
@@ -133,50 +173,53 @@
                 <h2>Products with High Carbon Footprint</h2>
                 <div class="product">
                     <span>MERC 1</span>
-                    <div style="width: 100px; height: 20px; background: black;"></div>
+                    <div style="background: black;"></div>
                 </div>
                 <div class="product">
                     <span>MERC 2</span>
-                    <div style="width: 80px; height: 20px; background: black;"></div>
+                    <div style="background: black;"></div>
                 </div>
                 <div class="product">
                     <span>MERC 3</span>
-                    <div style="width: 60px; height: 20px; background: black;"></div>
+                    <div style="background: black;"></div>
                 </div>
                 <div class="product">
                     <span>MERC 4</span>
-                    <div style="width: 40px; height: 20px; background: black;"></div>
+                    <div style="background: black;"></div>
                 </div>
             </div>
             <div class="card alternates">
                 <h2>Alternate Product Suggestions</h2>
-                <div>
+                <div class="alternate">
                     <button>+ Add</button>
                 </div>
-                <div>
+                <div class="alternate">
                     <button>+ Add</button>
                 </div>
-                <div>
+                <div class="alternate">
                     <button>+ Add</button>
                 </div>
-                <div>
+                <div class="alternate">
                     <button>+ Add</button>
                 </div>
             </div>
         </div>
-        
-        <div class="section add-mates">
-            <div>
-                <button>+ Add</button>
-                <p>Name<br>Location</p>
-            </div>
-            <div>
-                <button>+ Add</button>
-                <p>Name<br>Location</p>
-            </div>
-            <div>
-                <button>+ Add</button>
-                <p>Name<br>Location</p>
+
+        <div class="right-section">
+            <button class="header">Add Shopmates</button>
+            <div class="section add-mates">
+                <div class="mate">
+                    <button>+ Add</button>
+                    <p>Name<br>Location</p>
+                </div>
+                <div class="mate">
+                    <button>+ Add</button>
+                    <p>Name<br>Location</p>
+                </div>
+                <div class="mate">
+                    <button>+ Add</button>
+                    <p>Name<br>Location</p>
+                </div>
             </div>
         </div>
     </div>
