@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Sustainability Impact</title>
+    <script src="https://unpkg.com/htmx.org@1.4.1"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .header div, .header button {
+            padding: 10px;
+            border: 1px solid #000;
+            margin: 5px;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        .card {
+            padding: 20px;
+            border: 1px solid #000;
+        }
+        .social-icons img {
+            width: 30px;
+            height: 30px;
+            margin: 5px;
+        }
+        .products {
+            display: flex;
+            justify-content: space-around;
+        }
+        .product {
+            display: flex;
+            align-items: center;
+        }
+        .product span {
+            width: 100px;
+        }
+        .alternates {
+            display: flex;
+            justify-content: space-around;
+        }
+        .alternates div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .add-mates {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .add-mates div {
+            width: 100px;
+            height: 100px;
+            border: 1px solid #000;
+            margin: 10px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h1>Visa Sustainability Impact</h1>
+            </div>
+            <div>
+                <button>Button 1</button>
+                <button>Button 2</button>
+                <button>Button 3</button>
+                <button>Button 4</button>
+            </div>
+            <button>Add Shopmates</button>
+        </div>
+        
+        <div class="section">
+            <div class="grid">
+                <div class="card">
+                    <h2>You Saved</h2>
+                    <h1>$42</h1>
+                </div>
+                <div class="card social-icons">
+                    <h2>Share Your Progress</h2>
+                    <img src="https://img.icons8.com/color/48/000000/telegram-app.png" alt="Telegram">
+                    <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">
+                    <img src="https://img.icons8.com/color/48/000000/snapchat.png" alt="Snapchat">
+                    <img src="https://img.icons8.com/color/48/000000/instagram-new.png" alt="Instagram">
+                </div>
+                <div class="card">
+                    <h2>Leaderboard</h2>
+                    <p>Hooray! You are 3rd on your leaderboard this week!</p>
+                    <button>Click for your gift</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section grid">
+            <div class="card">
+                <h2>Your Carbon Footprint</h2>
+                <!-- Insert Carbon Footprint Chart Here -->
+            </div>
+            <div class="card">
+                <h2>Spend Analyzer</h2>
+                <!-- Insert Spend Analyzer Chart Here -->
+            </div>
+        </div>
+        
+        <div class="section grid">
+            <div class="card products">
+                <h2>Products with High Carbon Footprint</h2>
+                <div class="product">
+                    <span>MERC 1</span>
+                    <div style="width: 100px; height: 20px; background: black;"></div>
+                </div>
+                <div class="product">
+                    <span>MERC 2</span>
+                    <div style="width: 80px; height: 20px; background: black;"></div>
+                </div>
+                <div class="product">
+                    <span>MERC 3</span>
+                    <div style="width: 60px; height: 20px; background: black;"></div>
+                </div>
+                <div class="product">
+                    <span>MERC 4</span>
+                    <div style="width: 40px; height: 20px; background: black;"></div>
+                </div>
+            </div>
+            <div class="card alternates">
+                <h2>Alternate Product Suggestions</h2>
+                <div>
+                    <button>+ Add</button>
+                </div>
+                <div>
+                    <button>+ Add</button>
+                </div>
+                <div>
+                    <button>+ Add</button>
+                </div>
+                <div>
+                    <button>+ Add</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section add-mates">
+            <div>
+                <button>+ Add</button>
+                <p>Name<br>Location</p>
+            </div>
+            <div>
+                <button>+ Add</button>
+                <p>Name<br>Location</p>
+            </div>
+            <div>
+                <button>+ Add</button>
+                <p>Name<br>Location</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
