@@ -6,5 +6,4 @@ app_name = 'app'
 urlpatterns = [
     # list of acceptable paths
     path('', views.index, name='index')
-
 ]

@@ -1,13 +1,23 @@
 import pyrebase
+import os
+from dotenv import load_dotenv
+
+#Load environment file for secrets.
+try:
+    if load_dotenv('.env') is False:
+        raise TypeError
+except TypeError:
+    print('Unable to load .env file.')
+    quit()
 
 config = {
-    "apiKey": "AIzaSyBwB9gA2--WzleGgCfs6lgLHI6sKtI3CwQ",
-    "authDomain": "ecogrocers.firebaseapp.com",
-    "databaseURL": "https://ecogrocers-default-rtdb.firebaseio.com",
-    "projectId": "ecogrocers",
-    "storageBucket": "ecogrocers.appspot.com",
-    "messagingSenderId": "668707648924",
-    "appId": "1:668707648924:web:467bc7e79f762727220459",
+    "apiKey": os.environ['API_KEY'],
+    "authDomain": os.environ['AUTH_DOMAIN'],
+    "databaseURL": os.environ['DATABASE_URL'],
+    "projectId": os.environ['PROJECT_ID'],
+    "storageBucket": os.environ['STORAGE_BUCKET'],
+    "messagingSenderId": os.environ['SENDER_ID'],
+    "appId": os.environ['APP_ID']
 }
 
 firebase = pyrebase.initialize_app(config)

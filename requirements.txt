@@ -44,6 +44,7 @@ pyasn1_modules==0.4.0
 pydantic==2.5.3
 pydantic_core==2.14.6
 pyparsing==3.1.2
+pyrebase
 python-dotenv==0.21.1
 pytube==15.0.0
 pytz==2024.1
