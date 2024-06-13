@@ -5,5 +5,6 @@ app_name = 'app'
 
 urlpatterns = [
     # list of acceptable paths
-    path('', views.index, name='index')
+    path('', views.index, name='index'),
+    path('draft/', views.draft, name='draft')
 ]

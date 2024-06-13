@@ -25,9 +25,9 @@ def upload_to_firebase():
         data_list2 = df2.to_dict(orient='records')
 
         # Push data to Firebase
-        for record in data_list1:
-            db.child('card_data').push(record)
-            time.sleep(0.1)  # Small delay to prevent overwhelming the database
+        # for record in data_list1:
+        #     db.child('card_data').push(record)
+        #     time.sleep(0.1)  # Small delay to prevent overwhelming the database
 
         for record in data_list2:
             db.child('open_banking_data').push(record)
