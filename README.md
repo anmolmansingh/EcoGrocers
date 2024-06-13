@@ -11,7 +11,8 @@ Make sure you have django correctly installed by typing in the command:
 ```
 django-admin --version
 ```
-Copy-paste the local env file to the project (it should never be committed)
+
+Create your own .env file using the secrets from the Firebase database
 
 After creating a virtual environment of your choice, run the requirements.txt file to install your libraries on it
 ```
