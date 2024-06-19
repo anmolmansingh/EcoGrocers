@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import JsonResponse, HttpResponse
 # Create your views here.
 import pyrebase
 
@@ -17,7 +17,7 @@ firebase = pyrebase.initialize_app(config)
 authe = firebase.auth()
 database = firebase.database()
 
-def index(request):
+def homepage(request):
     user_name = database.child('Data').child('Name').get().val()
     footprint = database.child('Data').child('Footprint').get().val()
     type = database.child('Data').child('Type').get().val()
@@ -26,4 +26,10 @@ def index(request):
         "footprint": footprint,
         "type": type
     }
-    return render(request, 'app/base.html', context)
+    return render(request, 'app/homepage.html', context)
+def get_footprint(request, user_id):
+    user_data = database.child('Data').child(user_id).get().val()
+    if user_data:
+        return render(request, 'app/footprint.html', {'data': user_data})
+    else:
+        return JsonResponse({'error': 'User not found'}, status=404)

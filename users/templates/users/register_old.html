@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>EcoGrocers - {{ title }}</title>
+    {% else %}
+        <title>EcoGrocers</title>
+    {% endif %}
+    <script src="https://unpkg.com/htmx.org@1.4.1"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f9fc;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            /* width: 90%;
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center; */
+            
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 2em;
+            color: #333;
+        }
+        .header button {
+            padding: 10px 20px;
+            margin: 0 5px;
+            border: none;
+            border-radius: 20px;
+            background-color: #0052cc;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .header button:hover {
+            background-color: #003d99;
+        }
+        .section {
+            margin: 20px 0;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .card {
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .card h2 {
+            font-size: 1.5em;
+            color: #0052cc;
+            margin-bottom: 10px;
+        }
+        .card h1 {
+            font-size: 2.5em;
+            color: #333;
+        }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+        }
+        .products, .alternates, .add-mates {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .product, .alternate, .mate {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            background-color: #f0f4f8;
+            padding: 10px 20px;
+            margin: 5px 0;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .product span, .mate p {
+            flex: 1;
+        }
+        .product div, .alternate div, .mate button {
+            background-color: #0052cc;
+            width: 80px;
+            height: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .mate button {
+            width: auto;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            color: white;
+            cursor: pointer;
+        }
+        .mate button:hover {
+            background-color: #003d99;
+        }
+        .right-section {
+            position: absolute;
+            top: 120px; /* Adjust as needed */
+            right: 20px; /* Adjust as needed */
+            width: 200px; /* Adjust as needed */
+        }
+        .right-section .header button {
+            width: 100%;
+        }
+        .add-mates .mate {
+            width: 100%;
+        }
+        .legend {
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- {% block content %} -->
+     <!-- <p>Hi </p> -->
+    
+    <div class = "container">
+        {% load crispy_forms_tags %}
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <!-- <legend class="border-bottom mb-4">Join Today!</legend> -->
+                <legend class="legend">Join Today!</legend>
+                <!-- {{ form.as_p }} -->
+                {{ form|crispy }}
+            </fieldset>
+            <div class="form-group">
+                <button class="btn btn-outline-info" type="submit">Sign Up</button>
+            </div>
+        </form>
+        <div class="border-top pt-3">
+            <small class="text-muted">
+                Already have an account? <a class="ml-2" href="#">Sign In</a> 
+            </small>
+        </div>
+        <!-- {%if messages%}
+        {%for message in messages%}
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        {%endfor%}
+        {%endif%} -->
+    
+    </div>
+
+    <!-- {% endblock content %} -->
+</body>
+</html>
+
+<!--comment is here-->
+

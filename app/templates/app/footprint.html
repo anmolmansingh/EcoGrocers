@@ -1,0 +1,7 @@
+<div>
+    <h2>Hi {{ data.name }},</h2>
+    <p>You have emitted {{ data.co2 }} kg CO<sub>2</sub> this month</p>
+    <div class="progress">
+        <div class="progress-bar" role="progressbar" style="width: {{ data.co2_percent }}%;" aria-valuenow="{{ data.co2 }}" aria-valuemin="0" aria-valuemax="100">{{ data.co2 }} kg</div>
+    </div>
+</div>

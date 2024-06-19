@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% if title %}
+        <title>EcoGrocers - {{ title }}</title>
+    {% else %}
+        <title>EcoGrocers</title>
+    {% endif %}
+    
+    <script src="https://unpkg.com/htmx.org@1.4.1"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <div class="container">
+        <div class="header">
+            <img src="{% static 'images/logo.png' %}" alt="EcoGrocers Logo" class="logo">
+            <div>
+                <button id="homeBtn">Home</button>
+                <button>Add Friend</button>
+                {% if user.is_authenticated %}
+                    <button id="profileBtn">Profile</button>
+                    <button id="logoutBtn">Logout</button>
+                {% else %}
+                    <button id="registerBtn">Register/Login</button>
+                {% endif %}
+            </div>
+        </div>
+        {% block content %}
+        {% endblock content %}
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var registerBtn = document.getElementById('registerBtn');
+            if (registerBtn) {
+                registerBtn.onclick = function() {
+                    window.location.href = "{% url 'register' %}";
+                };
+            }
+
+            var logoutBtn = document.getElementById('logoutBtn');
+            if (logoutBtn) {
+                logoutBtn.onclick = function() {
+                    window.location.href = "{% url 'logout' %}";
+                };
+            }
+            var profileBtn = document.getElementById('profileBtn');
+            if (profileBtn) {
+                profileBtn.onclick = function() {
+                    window.location.href = "{% url 'profile' %}";
+                };
+            }
+
+            var homeBtn = document.getElementById('homeBtn');
+            if (homeBtn) {
+                homeBtn.onclick = function() {
+                    window.location.href = "{% url 'homepage' %}";
+                };
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>

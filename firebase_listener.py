@@ -5,7 +5,7 @@ import time
 def upload_to_firebase():
     # Read the Excel file
     try:
-        xls = pd.ExcelFile('../../Data/VisaClimateTechData.xlsx')
+        xls = pd.ExcelFile('C:/Users/Keagan/projects/EcoGrocers/Data/VisaClimateTechData.xlsx')
         df1 = pd.read_excel(xls, '2_Card data')
         df2 = pd.read_excel(xls, '3_Open banking data')
 
